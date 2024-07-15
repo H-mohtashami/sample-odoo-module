@@ -1,0 +1,78 @@
+<odoo>
+    <record id="view_eyeglass_management_form" model="ir.ui.view">
+        <field name="name">eyeglass.management.form</field>
+        <field name="model">eyeglass.management</field>
+        <field name="arch" type="xml">
+            <form string="Patient Eye Profile">
+                <sheet>
+                    <group>
+                        <field name="fullname"/>
+                        <field name="email"/>
+                        <field name="birthday"/>
+                        <field name="address"/>
+                        <field name="cellphone"/>
+                        <field name="homephone"/>
+                        <field name="occupation"/>
+                    </group>
+                   <notebook>
+                        <page string="Eyeglass Details">
+                            <field name="eyeglass_ids" nolabel="1">
+                                <tree create="false" delete="false" editable="bottom">
+                                    <field name="eye" />
+                                    <field name="sph"/>
+                                    <field name="cyl"/>
+                                    <field name="axis"/>
+                                    <field name="prism"/>
+                                    <field name="add"/>
+                                    <field name="cd"/>
+                                    <field name="pd"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="History">
+                            <field name="history_ids" >
+                                <tree create="false" delete="false" readonly="1">
+                                    <field name="eye" />
+                                    <field name="sph"/>
+                                    <field name="cyl" />
+                                    <field name="axis"/>
+                                    <field name="prism"/>
+                                    <field name="add" />
+                                    <field name="cd"/>
+                                    <field name="pd"/>
+                                    <field name="change_date"/>
+                                    <field name="changes"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                       <button type="object" name="action_submit" string="Submit" class="btn-primary"/>
+                       <button string="Discard" class="btn-secondary" special="cancel"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eyeglass_management_tree" model="ir.ui.view">
+        <field name="name">eyeglass.management.tree</field>
+        <field name="model">eyeglass.management</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Eye Profilet">
+                <field name="fullname"/>
+                <field name="email"/>
+                <field name="birthday"/>
+            </tree>
+        </field>
+    </record>
+
+   <menuitem id="menu_eyeglass_management_root" name="Patient Eye Profile" sequence="1"/>
+    <menuitem id="menu_eyeglass_management" name="Patient Eye Profile" parent="menu_eyeglass_management_root" sequence="1"/>
+
+    <record id="action_eyeglass_management" model="ir.actions.act_window">
+        <field name="name">Patient Eye Profile</field>
+        <field name="res_model">eyeglass.management</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_action_eyeglass_management" name="Patient Eye Profile" parent="menu_eyeglass_management" action="action_eyeglass_management" sequence="1"/>
+</odoo>

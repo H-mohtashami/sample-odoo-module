@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_eyeglass_management_user,access_eyeglass_management_user,model_eyeglass_management,,1,1,1,1
+access_eyeglass_detail_user,access_eyeglass_detail_user,model_eyeglass_detail,,1,1,1,1
+access_eyeglass_history_user,access_eyeglass_history_user,model_eyeglass_history,,1,1,1,1
